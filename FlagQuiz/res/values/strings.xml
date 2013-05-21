@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FlagQuiz</string>
+    <string name="menu_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="b_nametoflag_text">from name to flag</string>
+    <string name="b_flagtoname_text">from flag to name</string>
+    <string name="b_list_text">list</string>
+    <string name="b_settings_text">settings</string>
+
+</resources>
