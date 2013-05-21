@@ -8,6 +8,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/**
+ *
+ * Main Screen to select flag quiz mode.
+ * @author Muammil
+ */
 public class FlagMainActivity extends Activity {
 
   @Override
@@ -28,13 +33,17 @@ public class FlagMainActivity extends Activity {
     button.setOnClickListener(new  OnClickListener() {
       @Override public void onClick(View v) {
         switch(v.getId()) {
-        case R.id.b_nametoflag :
+        case R.id.b_nametoflag:
+          // TODO: Show Name To Flag Screen
           break;
-        case R.id.b_flagtoname :
+        case R.id.b_flagtoname:
+          // TODO: Show Flag To Name Screen
           break;
-        case R.id.b_list :
+        case R.id.b_list:
+          // TODO: Show Flags list Screen
           break;
-        case R.id.b_settings :
+        case R.id.b_settings:
+          // TODO: Show Settings Screen
           break;
 	    }
 	  }
