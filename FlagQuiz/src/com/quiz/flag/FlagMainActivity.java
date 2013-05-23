@@ -3,6 +3,7 @@ package com.quiz.flag;
 import com.quiz.flag.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,7 +41,8 @@ public class FlagMainActivity extends Activity {
           // TODO: Show Flag To Name Screen
           break;
         case R.id.b_list:
-          // TODO: Show Flags list Screen
+          Intent viewList = new Intent(FlagMainActivity.this, FlagListActivity.class);
+          startActivity(viewList);
           break;
         case R.id.b_settings:
           // TODO: Show Settings Screen
