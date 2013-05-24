@@ -8,12 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-
 /**
  *
  * Main Screen to select flag quiz mode.
  * @author Muammil
  */
+
 public class FlagMainActivity extends Activity {
 
   @Override
