@@ -12,12 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 /**
 *
 * Screen shows all country name and their respective flags.
 * @author Muammil
 */
+
 public class FlagListActivity extends Activity {
 
   @Override
