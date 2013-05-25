@@ -33,16 +33,21 @@ public class FlagMainActivity extends Activity {
   private void setButtonClickListener(Button button) {
     button.setOnClickListener(new  OnClickListener() {
       @Override public void onClick(View v) {
+        Intent intent;
         switch(v.getId()) {
         case R.id.b_nametoflag:
-          // TODO: Show Name To Flag Screen
+          intent = new Intent(FlagMainActivity.this, CountDownActivity.class);
+          intent.putExtra("key", 0);
+          startActivity(intent);
           break;
         case R.id.b_flagtoname:
-          // TODO: Show Flag To Name Screen
+          intent = new Intent(FlagMainActivity.this, CountDownActivity.class);
+          intent.putExtra("key", 1);
+          startActivity(intent);
           break;
         case R.id.b_list:
-          Intent viewList = new Intent(FlagMainActivity.this, FlagListActivity.class);
-          startActivity(viewList);
+          intent = new Intent(FlagMainActivity.this, FlagListActivity.class);
+          startActivity(intent);
           break;
         case R.id.b_settings:
           // TODO: Show Settings Screen
