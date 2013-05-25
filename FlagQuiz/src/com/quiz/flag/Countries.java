@@ -2,12 +2,12 @@ package com.quiz.flag;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
 *
 * Enum for Countries.
 * @author Muammil
 */
+
 public enum Countries {
   ANDORRA("Andorra", R.drawable.andorra),
   ARGENTINA("Argentina", R.drawable.argentina),
