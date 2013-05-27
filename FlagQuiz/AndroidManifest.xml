@@ -20,5 +20,8 @@
       </intent-filter>
   </activity>
   <activity android:name="com.quiz.flag.FlagListActivity"/>
+  <activity android:name="com.quiz.flag.NameToFlagActivity"/>
+  <activity android:name="com.quiz.flag.FlagToNameActivity"/>
+  <activity android:name="com.quiz.flag.CountDownActivity"/>
   </application>
 </manifest>
