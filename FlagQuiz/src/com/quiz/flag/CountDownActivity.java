@@ -21,7 +21,7 @@ public class CountDownActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.count_down_screen);
     final TextView countDownText = (TextView) findViewById(R.id.tv_countdown);
-    final int ButtonId = getIntent().getExtras().getInt("ButtonId");
+    final int buttonId = getIntent().getExtras().getInt("buttonId");
     count = 3;
     new Timer().scheduleAtFixedRate(new TimerTask() {
       @Override
@@ -36,7 +36,7 @@ public class CountDownActivity extends Activity {
               countDownText.setText("GO");
               finish();
               Intent intent;
-              switch(ButtonId) {
+              switch(buttonId) {
               case R.id.b_nametoflag:
                 intent = new Intent(CountDownActivity.this, NameToFlagActivity.class);
                 startActivity(intent);
