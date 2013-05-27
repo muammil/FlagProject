@@ -21,11 +21,9 @@ public class CountDownActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.count_down_screen);
     final TextView countDownText = (TextView) findViewById(R.id.tv_countdown);
-    Intent getInteger = getIntent();
-    final int key = getInteger.getExtras().getInt("key");
+    final int ButtonId = getIntent().getExtras().getInt("ButtonId");
     count = 3;
-    Timer timer = new Timer();
-    timer.scheduleAtFixedRate(new TimerTask() {
+    new Timer().scheduleAtFixedRate(new TimerTask() {
       @Override
       public void run() {
         runOnUiThread(new Runnable() {
@@ -36,15 +34,17 @@ public class CountDownActivity extends Activity {
               --count;
             } else if(count == 0) {
               countDownText.setText("GO");
+              finish();
               Intent intent;
-              switch(key) {
-              case 0:
+              switch(ButtonId) {
+              case R.id.b_nametoflag:
                 intent = new Intent(CountDownActivity.this, NameToFlagActivity.class);
                 startActivity(intent);
                 break;
-              case 1:
+              case R.id.b_flagtoname:
                 intent = new Intent(CountDownActivity.this, FlagToNameActivity.class);
                 startActivity(intent);
+                break;
               }
               cancel();
             }
@@ -52,11 +52,5 @@ public class CountDownActivity extends Activity {
         });
       }
     }, 0, ONE_SECOND);
-  }
-
-  @Override
-  protected void onPause() {
-    super.onPause();
-    finish();
   }
 }

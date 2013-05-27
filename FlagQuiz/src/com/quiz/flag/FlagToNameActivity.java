@@ -2,7 +2,6 @@ package com.quiz.flag;
 
 import android.app.Activity;
 import android.os.Bundle;
-
 /**
 *
 * Flag to name game mode

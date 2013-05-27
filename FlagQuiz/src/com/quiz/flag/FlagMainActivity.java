@@ -1,7 +1,6 @@
 package com.quiz.flag;
 
 import com.quiz.flag.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,12 +36,12 @@ public class FlagMainActivity extends Activity {
         switch(v.getId()) {
         case R.id.b_nametoflag:
           intent = new Intent(FlagMainActivity.this, CountDownActivity.class);
-          intent.putExtra("key", 0);
+          intent.putExtra("ButtonId", R.id.b_nametoflag);
           startActivity(intent);
           break;
         case R.id.b_flagtoname:
           intent = new Intent(FlagMainActivity.this, CountDownActivity.class);
-          intent.putExtra("key", 1);
+          intent.putExtra("ButtonId", R.id.b_flagtoname);
           startActivity(intent);
           break;
         case R.id.b_list:
