@@ -3,7 +3,7 @@ package com.quiz.flag;
 import java.util.List;
 /**
 *
-* Name to flag question entry
+* Question entry class
 * @author Muammil
 */
 

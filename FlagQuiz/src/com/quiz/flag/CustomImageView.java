@@ -21,16 +21,16 @@ public class CustomImageView extends ImageView {
   private boolean isCorrect;
   private float xPos;
   private float yPos;
-  private SoundPool soundPool;
-  private int correct = 0;
-  private int wrong = 0;
+  private final SoundPool soundPool;
+  private int correct;
+  private int wrong;
 
   public CustomImageView(Context context, AttributeSet attrs) {
     super(context, attrs);
     thumpsUp = BitmapFactory.decodeResource(getResources(), R.drawable.thumps_up_imageview);
     thumpsDown = BitmapFactory.decodeResource(getResources(), R.drawable.thumps_down_imageview);
     soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-    correct = soundPool.load(getContext(), R.raw.success, 1);
+    correct = soundPool.load(getContext(), R.raw.right, 1);
     wrong = soundPool.load(getContext(), R.raw.fail, 0);
   }
 
@@ -56,5 +56,9 @@ public class CustomImageView extends ImageView {
     this.xPos = xPos;
     this.yPos = yPos;
     invalidate();
+  }
+
+  public void clearSelection() {
+    isSelected = false;
   }
 }
