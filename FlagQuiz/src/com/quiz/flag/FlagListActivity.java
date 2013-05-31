@@ -1,7 +1,6 @@
 package com.quiz.flag;
 
 import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;

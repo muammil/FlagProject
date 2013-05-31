@@ -22,8 +22,8 @@ public class CustomImageView extends ImageView {
   private float xPos;
   private float yPos;
   private final SoundPool soundPool;
-  private int correct;
-  private int wrong;
+  private final int correct;
+  private final int wrong;
 
   public CustomImageView(Context context, AttributeSet attrs) {
     super(context, attrs);

@@ -45,11 +45,9 @@ public class NameToFlagActivity extends Activity {
     progress.setMax(count);
     showNextQuestion();
     new Timer().scheduleAtFixedRate(new TimerTask() {
-      @Override
-      public void run() {
+      @Override public void run() {
         runOnUiThread(new Runnable() {
-          @Override
-          public void run() {
+          @Override public void run() {
             if(count > 0) {
               countDownText.setText(String.valueOf(count));
               progress.setProgress(count);
@@ -93,7 +91,7 @@ public class NameToFlagActivity extends Activity {
               clearAllSlection();
               showNextQuestion();
             }
-          }, 250);
+          }, 100);
         } else {
           option.onClickImage(false, option.getWidth(), option.getHeight());
         }
