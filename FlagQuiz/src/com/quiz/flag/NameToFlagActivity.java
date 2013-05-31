@@ -1,11 +1,13 @@
 package com.quiz.flag;
 
 import java.util.List;
-
+import java.util.Timer;
+import java.util.TimerTask;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 /**
 *
@@ -17,8 +19,12 @@ public class NameToFlagActivity extends Activity {
   private TextView questionText;
   private int questionId = 0;
   private CustomImageView[] flagOptions;
-  private  List<QuestionEntry> questions;
+  private List<QuestionEntry> questions;
   private int questionLimit;
+  private TextView countDownText;
+  private ProgressBar progress;
+  private final long ONE_SECOND = 1000;
+  private int count;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +39,29 @@ public class NameToFlagActivity extends Activity {
     flagOptions[1] = (CustomImageView) findViewById(R.id.iv_n2f_flag2);
     flagOptions[2] = (CustomImageView) findViewById(R.id.iv_n2f_flag3);
     flagOptions[3] = (CustomImageView) findViewById(R.id.iv_n2f_flag4);
+    countDownText = (TextView) findViewById(R.id.tv_n2f_count);
+    progress = (ProgressBar) findViewById(R.id.pb_n2f);
+    count = 30;
+    progress.setMax(count);
     showNextQuestion();
+    new Timer().scheduleAtFixedRate(new TimerTask() {
+      @Override
+      public void run() {
+        runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            if(count > 0) {
+              countDownText.setText(String.valueOf(count));
+              progress.setProgress(count);
+              count--;
+            } else if(count == 0) {
+              finish();
+              cancel();
+            }
+          }
+        });
+      }
+    }, 0, ONE_SECOND);
   }
 
   private void showNextQuestion() {

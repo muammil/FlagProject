@@ -42,4 +42,21 @@
       android:layout_height="wrap_content"
       android:layout_margin="10dp"/>
   </LinearLayout>
+  <LinearLayout android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:weightSum="1">
+    <ProgressBar android:id="@+id/pb_n2f"
+      style="?android:attr/progressBarStyleHorizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight=".1"/>
+    <TextView android:id="@+id/tv_n2f_count"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="4dp"
+      android:layout_weight=".9"/>
+  </LinearLayout>
 </LinearLayout>
