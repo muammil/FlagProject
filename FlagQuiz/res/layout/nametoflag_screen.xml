@@ -3,7 +3,8 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical"
-  android:padding="15dp">
+  android:padding="15dp"
+  android:background="@drawable/background_gray">
   <TextView android:id="@+id/tv_n2f_nation"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -57,6 +58,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginLeft="4dp"
+      android:textColor="@android:color/white"
       android:layout_weight=".9"/>
   </LinearLayout>
 </LinearLayout>

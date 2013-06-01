@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.TextView;
 /**
@@ -15,12 +16,15 @@ import android.widget.TextView;
 public class CountDownActivity extends Activity {
   private final long ONE_SECOND = 1000;
   private int count;
+  private Typeface font;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.count_down_screen);
     final TextView countDownText = (TextView) findViewById(R.id.tv_countdown);
+    font = Typeface.createFromAsset(getAssets(), "digital.ttf");
+    countDownText.setTypeface(font);
     final int buttonId = getIntent().getExtras().getInt("buttonId");
     count = 3;
     new Timer().scheduleAtFixedRate(new TimerTask() {

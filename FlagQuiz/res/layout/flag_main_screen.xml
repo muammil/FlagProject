@@ -4,7 +4,8 @@
   android:layout_height="match_parent"
   android:orientation="vertical"
   android:padding="35dp"
-  tools:context=".FlagMainActivity" >
+  tools:context=".FlagMainActivity"
+  android:background="@drawable/background_gray">
   <Button android:id="@+id/b_nametoflag"
     android:text="@string/b_nametoflag_text"
     android:layout_marginTop="25dp"
@@ -12,7 +13,8 @@
     android:layout_height="wrap_content"
     android:textStyle="italic"
     android:textSize="15sp"
-    android:layout_gravity="center"/>
+    android:layout_gravity="center"
+    android:padding="20dp"/>
   <Button android:id="@+id/b_flagtoname"
     android:text="@string/b_flagtoname_text"
     android:textStyle="italic"
@@ -20,7 +22,8 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:textSize="15sp"
-    android:layout_marginTop="15dp"/>
+    android:layout_marginTop="5dp"
+    android:padding="20dp"/>
   <Button android:id="@+id/b_list"
     android:text="@string/b_list_text"
     android:textStyle="italic"
