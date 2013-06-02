@@ -2,6 +2,7 @@ package com.quiz.flag;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 /**
 *
 * Enum for Countries.
@@ -98,5 +99,9 @@ public enum Countries {
       countries.add(country);
     }
     return countries;
+  }
+
+  public static Countries getRandomCountry() {
+    return values()[new Random().nextInt(values().length)];
   }
 }
