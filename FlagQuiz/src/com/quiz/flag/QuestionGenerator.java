@@ -1,6 +1,7 @@
 package com.quiz.flag;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 /**
@@ -10,29 +11,28 @@ import java.util.Random;
 */
 
 public class QuestionGenerator {
-  private List<Countries> questionSet;
+  private final List<Countries> allCountries;
+
+  public QuestionGenerator() {
+    allCountries = Countries.getAllCountries();
+  }
 
   public List<QuestionEntry> getQuestions() {
     List<QuestionEntry> questions = new ArrayList<QuestionEntry>();
-    List<Countries> optionSet;
-
-    for(int i= 0; i<=15; i++) {
-      optionSet = getQuestionSet();
+    for(int i = 0; i < 15; i++) {
+      List<Countries> optionSet = getOptions();
       questions.add(new QuestionEntry(optionSet, getAnswerFromSet(optionSet)));
     }
     return questions;
   }
 
-  private List<Countries> getQuestionSet () {
-    questionSet = new ArrayList<Countries>();
-    for(int i=0; i<4; i++) {
-      questionSet.add(Countries.getRandomCountry());
-    }
-    return questionSet;
+  private List<Countries> getOptions() {
+    List<Countries> shuffleList = new ArrayList<Countries>(allCountries);
+    Collections.shuffle(shuffleList);
+    return shuffleList.subList(0, 4);
   }
 
   private Countries getAnswerFromSet(List<Countries> optionSet) {
-    Countries answer = optionSet.get(new Random().nextInt(optionSet.size()));
-    return answer;
+    return optionSet.get(new Random().nextInt(optionSet.size()));
   }
 }
