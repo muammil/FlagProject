@@ -3,7 +3,8 @@
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
   android:orientation="horizontal"
-  android:weightSum="1">
+  android:weightSum="1"
+  android:background="@android:color/darker_gray">
   <ImageView android:id="@+id/iv_listflag"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
