@@ -1,0 +1,5 @@
+To install library recorder-extensions.jar as maven, run the following command inside your terminal 
+
+cd ~/<Path to flag project>/test/lib/;
+bash recorder_extensions.sh
+
