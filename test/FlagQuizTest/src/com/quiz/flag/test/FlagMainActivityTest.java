@@ -3,10 +3,9 @@ package com.quiz.flag.test;
 import android.test.ActivityInstrumentationTestCase2;
 import android.app.Activity;
 import junit.framework.AssertionFailedError;
-
 import com.bitbar.recorder.extensions.ExtSolo;
-
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class FlagMainActivityTest extends ActivityInstrumentationTestCase2<Activity> {
 
@@ -44,16 +43,16 @@ public class FlagMainActivityTest extends ActivityInstrumentationTestCase2<Activ
   public void testRecorded() throws Exception {
     try {
       solo.waitForActivity("FlagMainActivity");
-      solo.sleep(6200);
-      assertTrue("Wait for button (id: com.quiz.flag.R.id.b_flagtoname) failed.",
-          solo.waitForButtonById("com.quiz.flag.R.id.b_flagtoname", 20000));
-      solo.clickOnButton((Button) solo.findViewById("com.quiz.flag.R.id.b_flagtoname"));
+      solo.sleep(5300);
+      assertTrue("Wait for button (id: com.quiz.flag.R.id.b_nametoflag) failed.",
+          solo.waitForButtonById("com.quiz.flag.R.id.b_nametoflag", 20000));
+      solo.clickOnButton((Button) solo.findViewById("com.quiz.flag.R.id.b_nametoflag"));
       solo.waitForActivity("CountDownActivity");
-      solo.waitForActivity("FlagToNameActivity");
-      solo.sleep(5900);
-      assertTrue("Wait for button (id: com.quiz.flag.R.id.b_f2n_nation2) failed.",
-          solo.waitForButtonById("com.quiz.flag.R.id.b_f2n_nation2", 20000));
-      solo.clickOnButton((Button) solo.findViewById("com.quiz.flag.R.id.b_f2n_nation2"));
+      solo.waitForActivity("NameToFlagActivity");
+      solo.sleep(8500);
+      assertTrue("Wait for image (id: com.quiz.flag.R.id.iv_n2f_flag3) failed.",
+          solo.waitForImageById("com.quiz.flag.R.id.iv_n2f_flag3", 20000));
+      solo.clickOnImage((ImageView) solo.findViewById("com.quiz.flag.R.id.iv_n2f_flag3"));
       solo.waitForActivity("FlagMainActivity");
     } catch (AssertionFailedError e) {
       solo.fail("com.quiz.flag.test.FlagMainActivityTest.testRecorded_scr_fail", e);
