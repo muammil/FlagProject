@@ -26,11 +26,13 @@ public class FlagToNameActivity extends Activity {
   private ProgressBar progress;
   private final long ONE_SECOND = 1000;
   private int count;
+  private SoundManager playSound;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.flagtoname_screen);
+    playSound = new SoundManager(getBaseContext());
     QuestionGenerator generator = new QuestionGenerator();
     questions = generator.getQuestions();
     questionLimit = questions.size();
@@ -86,6 +88,7 @@ public class FlagToNameActivity extends Activity {
       @Override public void onClick(View v) {
         if(selectedOption == answer) {
           option.onClickButton(true, option.getWidth(), option.getHeight());
+          playSound.right();
           new Handler().postDelayed(new Runnable() {
             @Override public void run() {
               ++questionId;
@@ -95,6 +98,7 @@ public class FlagToNameActivity extends Activity {
           }, 100);
         } else {
           option.onClickButton(false, option.getWidth(), option.getHeight());
+          playSound.wrong();
         }
         option.setClickable(false);
       }

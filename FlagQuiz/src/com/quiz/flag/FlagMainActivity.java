@@ -49,7 +49,8 @@ public class FlagMainActivity extends Activity {
           startActivity(intent);
           break;
         case R.id.b_settings:
-          // TODO: Show Settings Screen
+          intent = new Intent(FlagMainActivity.this, SettingsActivity.class);
+          startActivity(intent);
           break;
 	    }
 	  }

@@ -26,5 +26,7 @@
     android:screenOrientation="portrait"/>
   <activity android:name="com.quiz.flag.CountDownActivity"
     android:screenOrientation="portrait"/>
+  <activity android:name="com.quiz.flag.SettingsActivity"
+    android:screenOrientation="portrait"/>
   </application>
 </manifest>

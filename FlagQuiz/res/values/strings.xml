@@ -6,4 +6,6 @@
   <string name="b_flagtoname_text">from Flag to Name</string>
   <string name="b_list_text">List</string>
   <string name="b_settings_text">Settings</string>
+  <string name="tv_sound_text">Game sounds</string>
+  <string name="cb_sound_text">Enable</string>
 </resources>
