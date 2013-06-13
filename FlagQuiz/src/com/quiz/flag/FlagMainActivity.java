@@ -14,10 +14,15 @@ import android.widget.Button;
  */
 
 public class FlagMainActivity extends Activity {
+  private UserPreference userPreference;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    userPreference = new UserPreference(this);
+    SoundManager soundManager = new SoundManager(this, userPreference);
+    ((FlagApplication)getApplicationContext()).setUserPreference(userPreference);
+    ((FlagApplication)getApplicationContext()).setSoundManager(soundManager);
     setContentView(R.layout.flag_main_screen);
     Button nameToFlag = (Button) findViewById(R.id.b_nametoflag);
     setButtonClickListener(nameToFlag);
@@ -49,10 +54,17 @@ public class FlagMainActivity extends Activity {
           startActivity(intent);
           break;
         case R.id.b_settings:
-          // TODO: Show Settings Screen
+          intent = new Intent(FlagMainActivity.this, SettingsActivity.class);
+          startActivity(intent);
           break;
 	    }
 	  }
     });
+  }
+
+  @Override
+  protected void onDestroy() {
+    userPreference.savePreference();
+    super.onDestroy();
   }
 }
