@@ -8,4 +8,10 @@
   <string name="b_settings_text">Settings</string>
   <string name="tv_sound_text">Game sounds</string>
   <string name="cb_sound_text">Enable</string>
+  <string name="b_end_menu">Menu</string>
+  <string name="b_end_review">Review</string>
+  <string name="tv_end_correct">Correct</string>
+  <string name="tv_end_wrong">Wrong</string>
+  <string name="tv_end_total">Total</string>
+  <string name="tv_end_score">SCORE CARD</string>
 </resources>

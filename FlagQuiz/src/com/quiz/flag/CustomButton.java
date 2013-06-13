@@ -23,7 +23,7 @@ public class CustomButton extends Button {
   public CustomButton(Context context, AttributeSet attrs) {
     super(context, attrs);
     thumpsUp = BitmapFactory.decodeResource(getResources(), R.drawable.thumps_up_button);
-    thumpsDown = BitmapFactory.decodeResource(getResources(), R.drawable.thumps_down_button); 
+    thumpsDown = BitmapFactory.decodeResource(getResources(), R.drawable.thumps_down_button);
   }
 
   @Override
