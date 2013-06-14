@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -26,12 +27,16 @@ public class FlagToNameActivity extends Activity {
   private ProgressBar progress;
   private final long ONE_SECOND = 1000;
   private int count;
+  private SoundManager playSound;
+  private ResultsTracker tracker;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.flagtoname_screen);
+    playSound = ((FlagApplication)getApplicationContext()).getSoundManager();
     QuestionGenerator generator = new QuestionGenerator();
+    tracker = new ResultsTracker();
     questions = generator.getQuestions();
     questionLimit = questions.size();
     questionFlag = (ImageView) findViewById(R.id.iv_f2n_flag);
@@ -54,7 +59,7 @@ public class FlagToNameActivity extends Activity {
               progress.setProgress(count);
               count--;
             } else if(count == 0) {
-              finish();
+              onGameEnd();
               cancel();
             }
           }
@@ -63,9 +68,16 @@ public class FlagToNameActivity extends Activity {
     }, 0, ONE_SECOND);
   }
 
+  private void onGameEnd() {
+    Intent i = new Intent(FlagToNameActivity.this, GameEndActivity.class);
+    i.putExtra("tracker", tracker);
+    startActivity(i);
+    finish();
+  }
+
   private void showNextQuestion() {
     if(questionId == questionLimit) {
-      finish();
+      onGameEnd();
     } else {
       Countries answer = questions.get(questionId).getAnswer();
       questionFlag.setImageResource(answer.getDrawableId());
@@ -85,7 +97,9 @@ public class FlagToNameActivity extends Activity {
     option.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         if(selectedOption == answer) {
+          tracker.countCorrect();
           option.onClickButton(true, option.getWidth(), option.getHeight());
+          playSound.right();
           new Handler().postDelayed(new Runnable() {
             @Override public void run() {
               ++questionId;
@@ -94,7 +108,9 @@ public class FlagToNameActivity extends Activity {
             }
           }, 100);
         } else {
+          tracker.countWrong();
           option.onClickButton(false, option.getWidth(), option.getHeight());
+          playSound.wrong();
         }
         option.setClickable(false);
       }

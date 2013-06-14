@@ -10,7 +10,8 @@
     android:allowBackup="true"
     android:icon="@drawable/logo"
     android:label="@string/app_name"
-    android:theme="@style/AppTheme" >
+    android:theme="@style/AppTheme"
+    android:name=".FlagApplication">
   <activity
     android:name="com.quiz.flag.FlagMainActivity"
     android:label="@string/app_name" >
@@ -26,5 +27,8 @@
     android:screenOrientation="portrait"/>
   <activity android:name="com.quiz.flag.CountDownActivity"
     android:screenOrientation="portrait"/>
+  <activity android:name="com.quiz.flag.SettingsActivity"
+    android:screenOrientation="portrait"/>
+  <activity android:name="com.quiz.flag.GameEndActivity"/>
   </application>
 </manifest>
