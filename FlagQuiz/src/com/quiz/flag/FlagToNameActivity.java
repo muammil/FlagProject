@@ -1,5 +1,6 @@
 package com.quiz.flag;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,12 +30,16 @@ public class FlagToNameActivity extends Activity {
   private int count;
   private SoundManager playSound;
   private ResultsTracker tracker;
+  private List<Item> items;
+  private List<ListAnswerChoice> selectedChoices;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.flagtoname_screen);
     playSound = ((FlagApplication)getApplicationContext()).getSoundManager();
+    items = new ArrayList<Item>();
+    selectedChoices = new ArrayList<ListAnswerChoice>();
     QuestionGenerator generator = new QuestionGenerator();
     tracker = new ResultsTracker();
     questions = generator.getQuestions();
@@ -69,6 +74,7 @@ public class FlagToNameActivity extends Activity {
   }
 
   private void onGameEnd() {
+    ((FlagApplication)getApplicationContext()).setQuestionList(items);
     Intent i = new Intent(FlagToNameActivity.this, GameEndActivity.class);
     i.putExtra("tracker", tracker);
     startActivity(i);
@@ -80,8 +86,13 @@ public class FlagToNameActivity extends Activity {
       onGameEnd();
     } else {
       Countries answer = questions.get(questionId).getAnswer();
+      items.add(new Header("Q"+(questionId + 1)+" : ", answer));
       questionFlag.setImageResource(answer.getDrawableId());
       List<Countries> options = questions.get(questionId).getOptions();
+      for(Countries option : options) {
+        selectedChoices.add(new ListAnswerChoice(option, null));
+      }
+      items.addAll(selectedChoices);
       int optionsCount = 0;
       for(Countries option : options) {
         nationOptions[optionsCount].setText(option.getName());
@@ -96,14 +107,20 @@ public class FlagToNameActivity extends Activity {
     final Countries selectedOption = (Countries)option.getTag();
     option.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
+        ListAnswerChoice selectedChoice = null;
+        for(ListAnswerChoice choice : selectedChoices) {
+          if(choice.getCountry() == selectedOption) selectedChoice = choice;
+        }
         if(selectedOption == answer) {
           tracker.countCorrect();
           option.onClickButton(true, option.getWidth(), option.getHeight());
           playSound.right();
+          selectedChoice.setStatus(true);
           new Handler().postDelayed(new Runnable() {
             @Override public void run() {
               ++questionId;
               clearAllSlection();
+              selectedChoices.clear();
               showNextQuestion();
             }
           }, 100);
@@ -111,6 +128,7 @@ public class FlagToNameActivity extends Activity {
           tracker.countWrong();
           option.onClickButton(false, option.getWidth(), option.getHeight());
           playSound.wrong();
+          selectedChoice.setStatus(false);
         }
         option.setClickable(false);
       }

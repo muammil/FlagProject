@@ -4,7 +4,7 @@
   android:versionCode="1"
   android:versionName="1.0" >
   <uses-sdk
-    android:minSdkVersion="14"
+    android:minSdkVersion="8"
     android:targetSdkVersion="17" />
   <application
     android:allowBackup="true"
@@ -30,5 +30,6 @@
   <activity android:name="com.quiz.flag.SettingsActivity"
     android:screenOrientation="portrait"/>
   <activity android:name="com.quiz.flag.GameEndActivity"/>
+  <activity android:name="com.quiz.flag.ReviewActivity"/>
   </application>
 </manifest>

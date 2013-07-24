@@ -36,13 +36,13 @@ public class GameEndActivity extends Activity {
   private void setButtonClickListener(Button button) {
     button.setOnClickListener(new OnClickListener() {
       @Override public void onClick(View v) {
+        finish();
         switch(v.getId()) {
         case R.id.b_end_menu:
           startActivity(new Intent(GameEndActivity.this, FlagMainActivity.class));
-          finish();
           break;
         case R.id.b_end_review:
-          //TODO: Review
+          startActivity(new Intent(GameEndActivity.this, ReviewActivity.class));
           break;
         }
       }
