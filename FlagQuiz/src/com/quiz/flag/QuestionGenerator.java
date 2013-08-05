@@ -19,7 +19,7 @@ public class QuestionGenerator {
 
   public List<QuestionEntry> getQuestions() {
     List<QuestionEntry> questions = new ArrayList<QuestionEntry>();
-    for(int i = 0; i < 15; i++) {
+    for(int i = 0; i < 35; i++) {
       List<Countries> optionSet = getOptions();
       questions.add(new QuestionEntry(optionSet, getAnswerFromSet(optionSet)));
     }

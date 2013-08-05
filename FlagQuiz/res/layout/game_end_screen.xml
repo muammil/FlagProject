@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:background="@drawable/background_gray"
   android:orientation="vertical" >
   <TextView android:text="@string/tv_end_score"
     android:textSize="25sp"
+    android:textColor="#D4A017"
     android:gravity="center"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -18,11 +20,13 @@
     <TextView android:layout_height="wrap_content"
       android:layout_width="0dp"
       android:text="@string/tv_end_correct"
+      android:textColor="#5FFB17"
       android:gravity="center"
       android:layout_weight=".5"/>
     <TextView android:id="@+id/tv_end_correct"
       android:layout_height="wrap_content"
       android:gravity="center"
+      android:textColor="#5FFB17"
       android:layout_width="0dp"
       android:layout_weight=".5"/>
   </LinearLayout>
@@ -35,10 +39,12 @@
       android:layout_width="0dp"
       android:text="@string/tv_end_wrong"
       android:gravity="center"
+      android:textColor="#F70D1A"
       android:layout_weight=".5"/>
     <TextView android:id="@+id/tv_end_wrong"
       android:layout_height="wrap_content"
       android:gravity="center"
+      android:textColor="#F70D1A"
       android:layout_width="0dp"
       android:layout_weight=".5"/>
   </LinearLayout>
@@ -51,10 +57,12 @@
       android:layout_width="0dp"
       android:gravity="center"
       android:text="@string/tv_end_total"
+      android:textColor="#D4A017"
       android:layout_weight=".5"/>
     <TextView android:id="@+id/tv_end_total"
       android:layout_height="wrap_content"
       android:gravity="center"
+      android:textColor="#D4A017"
       android:layout_width="0dp"
       android:layout_weight=".5"/>
   </LinearLayout>

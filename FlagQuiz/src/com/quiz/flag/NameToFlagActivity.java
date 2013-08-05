@@ -31,11 +31,13 @@ public class NameToFlagActivity extends Activity {
   private ResultsTracker tracker;
   private List<Item> items;
   private List<ListAnswerChoice> selectedChoices;
+  private Timer timer;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.nametoflag_screen);
+    timer = new Timer();
     playSound = ((FlagApplication)getApplicationContext()).getSoundManager();
     items = new ArrayList<Item>();
     selectedChoices = new ArrayList<ListAnswerChoice>();
@@ -54,7 +56,7 @@ public class NameToFlagActivity extends Activity {
     count = 30;
     progress.setMax(count);
     showNextQuestion();
-    new Timer().scheduleAtFixedRate(new TimerTask() {
+    timer.scheduleAtFixedRate(new TimerTask() {
       @Override public void run() {
         runOnUiThread(new Runnable() {
           @Override public void run() {
@@ -139,4 +141,11 @@ public class NameToFlagActivity extends Activity {
       flagOptions[i].clearSelection();
     }
   }
+
+  @Override
+  public void onBackPressed() {
+    finish();
+    timer.cancel();
+  }
+
 }
