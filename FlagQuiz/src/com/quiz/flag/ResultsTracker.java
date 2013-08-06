@@ -33,7 +33,7 @@ public class ResultsTracker implements Serializable {
 
   public String getWrongTotal() {
     wrongTotal = 2 * wrongCount;
-    return ""+wrongCount+" * 2 = -"+wrongTotal;
+    return ""+wrongCount+" * 2 = "+wrongTotal;
   }
 
   public String getCorrectTotal() {

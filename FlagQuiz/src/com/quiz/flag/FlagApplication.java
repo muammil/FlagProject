@@ -1,5 +1,7 @@
 package com.quiz.flag;
 
+import java.util.ArrayList;
+import java.util.List;
 import android.app.Application;
 /**
 *
@@ -10,6 +12,7 @@ import android.app.Application;
 public class FlagApplication extends Application {
   private UserPreference userPreference;
   private SoundManager soundManager;
+  private List<Item> questions = new ArrayList<Item>();
 
   public UserPreference getUserPreference() {
     return userPreference;
@@ -26,4 +29,13 @@ public class FlagApplication extends Application {
   public void setSoundManager(SoundManager soundManager) {
     this.soundManager = soundManager;
   }
+
+  public List<Item> getQuestionList() {
+    return questions;
+  }
+
+  public void setQuestionList(List<Item> list) {
+    this.questions = list;
+  }
+
 }
