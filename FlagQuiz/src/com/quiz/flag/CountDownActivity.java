@@ -17,6 +17,7 @@ public class CountDownActivity extends Activity {
   private final long ONE_SECOND = 1000;
   private int count;
   private Typeface font;
+  private Timer timer;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,8 @@ public class CountDownActivity extends Activity {
     countDownText.setTypeface(font);
     final int buttonId = getIntent().getExtras().getInt("buttonId");
     count = 3;
-    new Timer().scheduleAtFixedRate(new TimerTask() {
+    timer = new Timer();
+    timer.scheduleAtFixedRate(new TimerTask() {
       @Override
       public void run() {
         runOnUiThread(new Runnable() {
@@ -56,5 +58,11 @@ public class CountDownActivity extends Activity {
         });
       }
     }, 0, ONE_SECOND);
+  }
+
+  @Override
+  public void onBackPressed() {
+    timer.cancel();
+    finish();
   }
 }
