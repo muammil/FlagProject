@@ -10,7 +10,7 @@ import android.widget.TextView;
 * @author Muammil
 */
 
-public class Header implements Item{
+public class Header implements Item {
   private final Countries country;
   private final String questionNumber;
 

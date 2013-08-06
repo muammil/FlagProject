@@ -19,5 +19,4 @@ public class ReviewActivity extends ListActivity {
     ReviewAdapter adapter = new ReviewAdapter(this, items);
     setListAdapter(adapter);
   }
-
 }

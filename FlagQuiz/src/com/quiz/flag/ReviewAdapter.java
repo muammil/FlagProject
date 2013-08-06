@@ -38,5 +38,4 @@ public class ReviewAdapter extends ArrayAdapter<Item>{
   public int getViewTypeCount() {
     return RowType.values().length;
   }
-
 }

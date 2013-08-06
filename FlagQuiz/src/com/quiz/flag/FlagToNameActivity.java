@@ -145,8 +145,7 @@ public class FlagToNameActivity extends Activity {
 
   @Override
   public void onBackPressed() {
-    finish();
     timer.cancel();
+    finish();
   }
-
 }

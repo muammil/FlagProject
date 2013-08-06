@@ -62,8 +62,7 @@ public class CountDownActivity extends Activity {
 
   @Override
   public void onBackPressed() {
-    finish();
     timer.cancel();
+    finish();
   }
-
 }
